@@ -2,7 +2,9 @@
 
 [Payhere’s](https://payhere.co) embed SDK allow you to seamlessly integrate our payment forms into your own website or web app.
 
-### Integration options
+### Getting started
+
+Pick your integration option below:
 
 1. [HTML button](#1-html-button) (two lines of code, simple)
 2. [React](#2-react) – Gatsby/Next/create-react-app (intermediate)
