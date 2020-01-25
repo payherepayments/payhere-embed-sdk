@@ -4,9 +4,9 @@
 
 ### Integration options
 
-1. HTML button (two lines of code, simple)
-2. React/Gatsby/Next/create-react-app (intermediate)
-3. Vanilla JS (advanced)
+1. [HTML button](#1-html-button) (two lines of code, simple)
+2. [React](#2-react) – Gatsby/Next/create-react-app (intermediate)
+3. [Vanilla JS](#3-vanilla-js) (advanced)
 
 ## Usage
 
