@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-around;
   align-items: stretch;
+  backdrop-filter: blur(8px);
 }
 :local(.embedModal) {
   display: inline-block;
