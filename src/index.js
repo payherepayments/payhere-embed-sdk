@@ -1,4 +1,7 @@
 import styles from "./styles/embed.module.css"
+import "element-closest"
+import "core-js/features/array/fill"
+import "core-js/features/array/fill"
 
 class PayHereClient {
   constructor() {
