@@ -1,13 +1,18 @@
 import styles from "./styles/embed.module.css"
-import "element-closest"
+import elementClosest from "element-closest"
+import "element-remove"
 import "core-js/features/array/fill"
 import "core-js/features/array/fill"
+import "core-js/features/array/includes"
+import "core-js/features"
+import "core-js/features/promise"
 
 class PayHereClient {
   constructor() {
     this.setupButtonListeners()
     this.setupIframeListeners()
     this.modalOpen = false
+    elementClosest(window)
   }
 
   launch({embedURL, customerName, customerEmail, disableCustomer, amountInCents, hideAmount, customFields, onSuccess, onFailure, onClose}) {
