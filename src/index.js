@@ -23,6 +23,7 @@ class PayHereClient {
 
     var embedFrame = document.createElement("iframe")
     var customFieldsStr = customFields ? btoa(JSON.stringify(customFields)) : ""
+    customerEmail = customerEmail ? encodeURIComponent(customerEmail) : ""
     embedFrame.src = `${embedURL}?embedded=yes&embed_origin=${origin}&customer_name=${customerName || ""}&customer_email=${customerEmail || ""}&disable_customer_fields=${disableCustomer || "no"}&hide_amount=${hideAmount || "no"}&amount_in_cents=${amountInCents || ""}&custom_fields=${customFieldsStr}`
     embedFrame.className = styles.embedIframe
 

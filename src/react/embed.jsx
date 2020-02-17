@@ -10,6 +10,7 @@ const PayhereEmbed = ({ open, selector, embedURL, customerName, customerEmail, d
 
   const origin = window.location.origin
   const customFieldsStr = customFields ? btoa(JSON.stringify(customFields)) : ""
+  customerEmail = customerEmail ? encodeURIComponent(customerEmail) : ""
 
   const onMessage = useCallback(e => {
     switch (e.data.message) {
