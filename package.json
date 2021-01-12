@@ -1,6 +1,6 @@
 {
   "name": "payhere-embed-sdk",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "payhere.co embed widget",
   "main": "embed.js",
   "scripts": {
@@ -23,8 +23,8 @@
     "webpack-cli": "^3.2.3"
   },
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": ">= 16.12.0",
+    "react-dom": ">= 16.12.0"
   },
   "dependencies": {
     "core-js": "^3.6.4",
