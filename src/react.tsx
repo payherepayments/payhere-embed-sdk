@@ -3,12 +3,14 @@ import ReactDOM from "react-dom"
 import styles from "./styles/embed.module.css"
 import { LaunchProps } from "./types"
 
-type Props = LaunchProps & {
+interface PayHereReactProps extends LaunchProps {
   open: boolean
   selector: string
+  disableCustomer?: "yes" | "no"
+  hideAmount?: "yes" | "no"
 }
 
-const PayhereEmbed: React.FC<Props> = ({
+const PayhereEmbed: React.FC<PayHereReactProps> = ({
   open,
   selector,
   embedURL,

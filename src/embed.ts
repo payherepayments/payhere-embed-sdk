@@ -165,7 +165,6 @@ class PayHereClient {
   }
 }
 
-if (typeof window.PayHere === "undefined") {
-  window.PayHere = new PayHereClient()
-}
-export default window.PayHere
+const PayHere = new PayHereClient()
+
+export default PayHere

@@ -39,7 +39,6 @@ export default [
       {
         file: pkg.main,
         format: "umd",
-        exports: "named",
         sourcemap: true,
         name: "PayHere",
       },
@@ -52,7 +51,6 @@ export default [
       {
         file: "dist/embed.js",
         format: "umd",
-        exports: "named",
         sourcemap: true,
         name: "PayHere",
       },
