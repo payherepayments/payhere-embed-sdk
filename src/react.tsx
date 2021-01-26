@@ -1,8 +1,14 @@
-import React, { useEffect, useCallback, useState } from "react";
-import ReactDOM from "react-dom";
-import styles from "../styles/embed.module.css";
+import React, { useEffect, useCallback, useState } from "react"
+import ReactDOM from "react-dom"
+import styles from "./styles/embed.module.css"
+import { LaunchProps } from "./types"
 
-const PayhereEmbed = ({
+type Props = LaunchProps & {
+  open: boolean
+  selector: string
+}
+
+const PayhereEmbed: React.FC<Props> = ({
   open,
   selector,
   embedURL,
@@ -16,55 +22,62 @@ const PayhereEmbed = ({
   onFailure,
   onClose,
 }) => {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true)
 
   // Don't load in non browser context
-  if (typeof window === "undefined") return null;
+  if (typeof window === "undefined") return null
 
-  const origin = window.location.origin;
-  const customFieldsStr = customFields
-    ? btoa(JSON.stringify(customFields))
-    : "";
-  customerEmail = customerEmail ? encodeURIComponent(customerEmail) : "";
+  const origin = window.location.origin
+  const customFieldsStr = customFields ? btoa(JSON.stringify(customFields)) : ""
+  customerEmail = customerEmail ? encodeURIComponent(customerEmail) : ""
 
   const onMessage = useCallback(
     (e) => {
       switch (e.data.message) {
         case "payhere:ready":
-          setLoading(false);
-          break;
+          setLoading(false)
+          break
         case "payhere:success":
-          const data = e.data.content;
-          onSuccess(data);
+          const data = e.data.content
+          onSuccess(data)
           if (
             data.plan &&
             data.plan.success_url &&
             data.plan.success_url.length > 0
           ) {
-            console.log("Redirecting to " + data.plan.success_url);
+            console.log("Redirecting to " + data.plan.success_url)
             setTimeout(() => {
-              window.location.href = data.plan.success_url;
-            }, 2000);
+              window.location.href = data.plan.success_url
+            }, 2000)
           }
-          break;
+          break
         case "payhere:failure":
-          onFailure(e.data.content);
-          break;
+          onFailure(e.data.content)
+          break
         case "payhere:close":
-          onClose();
-          setLoading(true);
-          break;
+          onClose()
+          setLoading(true)
+          break
       }
     },
     [onSuccess, onFailure, onClose]
-  );
+  )
 
   useEffect(() => {
-    window.addEventListener("message", onMessage, false);
-    return () => window.removeEventListener("message", onMessage, false);
-  });
+    window.addEventListener("message", onMessage, false)
+    return () => window.removeEventListener("message", onMessage, false)
+  })
 
-  if (!open) return null;
+  if (!open) return null
+
+  const element = document.querySelector<HTMLElement>(selector)
+
+  if (!element) {
+    console.error(
+      `Payhere embed SDK: Element not found with selector '${selector}'`
+    )
+    return null
+  }
 
   return ReactDOM.createPortal(
     <div className={styles.embedContainer}>
@@ -92,8 +105,8 @@ const PayhereEmbed = ({
         ></iframe>
       </div>
     </div>,
-    document.querySelector(selector)
-  );
-};
+    element
+  )
+}
 
-export default PayhereEmbed;
+export default PayhereEmbed

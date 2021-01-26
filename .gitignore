@@ -21,3 +21,5 @@ sketch
 
 # Embed output files
 /dist
+
+/test.tsx
