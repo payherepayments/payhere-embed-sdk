@@ -84,7 +84,7 @@ class PayHereClient {
       function (e: MouseEvent) {
         const match = (e.target as HTMLElement).closest("[data-payhere-embed]")
 
-        if (!match || window.PayHere.modalOpen) return
+        if (!match || PayHere.modalOpen) return
         e.preventDefault()
         e.stopPropagation()
 
@@ -102,9 +102,9 @@ class PayHereClient {
           return
         }
 
-        window.PayHere.modalOpen = true
+        PayHere.modalOpen = true
 
-        window.PayHere.launch({
+        PayHere.launch({
           amountInCents: amountInCents ? parseInt(amountInCents) : null,
           embedURL,
           customerName,
@@ -137,7 +137,7 @@ class PayHereClient {
             break
           case "payhere:success":
             const data = e.data.content
-            window.PayHere.onSuccess(data)
+            PayHere.onSuccess(data)
             if (
               data.plan &&
               data.plan.success_url &&
@@ -150,13 +150,13 @@ class PayHereClient {
             }
             break
           case "payhere:failure":
-            window.PayHere.onFailure(e.data.content)
+            PayHere.onFailure(e.data.content)
             break
           case "payhere:close":
             const embed = document.querySelector("." + styles.embedContainer)
             embed && embed.remove()
-            window.PayHere.modalOpen = false
-            window.PayHere.onClose()
+            PayHere.modalOpen = false
+            PayHere.onClose()
             break
         }
       },
