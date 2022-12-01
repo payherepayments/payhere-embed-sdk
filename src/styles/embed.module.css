@@ -1,3 +1,10 @@
+:global(.payhere-embed-button) {
+  display: inline-block;
+  background: url('https://payhere-production-2.s3-eu-west-1.amazonaws.com/make-a-payment.svg') center center no-repeat;
+  background-size: contain;
+  width: 198px;
+  height: 50px;
+}
 :local(.embedContainer) {
   position: fixed;
   top: 0;
