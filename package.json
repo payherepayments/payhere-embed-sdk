@@ -1,6 +1,6 @@
 {
   "name": "payhere-embed-sdk",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "payhere.co embed widget",
   "main": "dist/index.js",
   "scripts": {
