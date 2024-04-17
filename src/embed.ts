@@ -167,6 +167,7 @@ class PayHereClient {
 
 const PayHere = new PayHereClient()
 
+if (typeof globalThis !== "undefined") { (globalThis as any).PayHere = PayHere }
 if (typeof window !== "undefined") { window.PayHere = PayHere }
 
 export default PayHere
