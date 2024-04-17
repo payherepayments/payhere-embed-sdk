@@ -167,4 +167,6 @@ class PayHereClient {
 
 const PayHere = new PayHereClient()
 
+if (typeof window !== "undefined") { window.PayHere = PayHere }
+
 export default PayHere
