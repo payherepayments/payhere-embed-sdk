@@ -50,7 +50,7 @@ export default [
     output: [
       {
         file: "dist/embed.js",
-        format: "umd",
+        format: "iife",
         sourcemap: true,
         name: "PayHere",
       },
